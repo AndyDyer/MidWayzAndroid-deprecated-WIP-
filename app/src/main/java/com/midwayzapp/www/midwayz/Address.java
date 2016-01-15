@@ -1,19 +1,17 @@
 package com.midwayzapp.www.midwayz;
 
-import android.app.Activity;
+
 import android.content.Intent;
-import android.content.res.Resources;
-import android.net.Uri;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Button;
-import android.widget.TextView;
+
 import android.widget.Toast;
 import android.util.Log;
 
@@ -32,37 +30,22 @@ import com.google.android.gms.maps.model.LatLngBounds;
 
 
 
+
+// TODO(Developer): Add pick 1 mode of transport Boxes
 public class Address extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener {
-
-
 
     private static final String TAG = Address.class.getSimpleName();
     EditText Address1;
     EditText Address2;
     Button toLoad;
 
-
-
     protected GoogleApiClient mGoogleApiClient;
-
     private PlaceAutocompleteAdapter mAdapter;
-
     private AutoCompleteTextView mAutocompleteView1;
     private AutoCompleteTextView mAutocompleteView2;
-
-
-
     private static final LatLngBounds BOUNDS_CONT_US= new LatLngBounds(
-             new LatLng(23.362429, -72.421875), new LatLng(47.129951, -127.265625));
-
-
-
-
-
-
-
-
+              new LatLng(47.129951, -127.265625), new LatLng(23.362429, -72.421875));
 
 
     @Override
@@ -71,10 +54,6 @@ public class Address extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         toLoad = (Button) findViewById(R.id.GoButton);
-
-
-
-
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, 0 /* clientId */, this) //TODO Check this clientID
@@ -90,7 +69,7 @@ public class Address extends AppCompatActivity
 
         // Register a listener that receives callbacks when a suggestion has been selected
         mAutocompleteView1.setOnItemClickListener(mAutocompleteClickListener);
-        mAutocompleteView2.setOnItemClickListener(mAutocompleteClickListener);  //TODO added
+        mAutocompleteView2.setOnItemClickListener(mAutocompleteClickListener);
 
 
 
@@ -100,7 +79,6 @@ public class Address extends AppCompatActivity
                 null);
         mAutocompleteView1.setAdapter(mAdapter);
         mAutocompleteView2.setAdapter(mAdapter);
-
 
 
         toLoad.setOnClickListener(new View.OnClickListener()
@@ -156,50 +134,26 @@ public class Address extends AppCompatActivity
         @Override
         public void onResult(PlaceBuffer places) {
             if (!places.getStatus().isSuccess()) {
-                // Request did not complete successfully
+
                 Log.e(TAG, "Place query did not complete. Error: " + places.getStatus().toString());
                 places.release();
                 return;
             }
-            // Get the Place object from the buffer.
+
             final Place place = places.get(0);
-/*
-            // Format details of the place for display and show it in a TextView.
-            mPlaceDetailsText.setText(formatPlaceDetails(getResources(), place.getName(),
-                    place.getId(), place.getAddress(), place.getPhoneNumber(),
-                    place.getWebsiteUri()));
 
-            // Display the third party attributions if set.
-            final CharSequence thirdPartyAttribution = places.getAttributions();
-            if (thirdPartyAttribution == null) {
-                mPlaceDetailsAttribution.setVisibility(View.GONE);
-            } else {
-                mPlaceDetailsAttribution.setVisibility(View.VISIBLE);
-                mPlaceDetailsAttribution.setText(Html.fromHtml(thirdPartyAttribution.toString()));
-            }
-
-*/
             Log.i(TAG, "Place details received: " + place.getName());
 
             places.release();
         }
     };
-    /*
-    private static Spanned formatPlaceDetails(Resources res, CharSequence name, String id,
-                                              CharSequence address, CharSequence phoneNumber, Uri websiteUri) {
-        Log.e(TAG, res.getString(R.string.place_details, name, id, address, phoneNumber,
-                websiteUri));
-        return Html.fromHtml(res.getString(R.string.place_details, name, id, address, phoneNumber,
-                websiteUri));
 
-    }
-    */
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
         Log.e(TAG, "onConnectionFailed: ConnectionResult.getErrorCode() = "
                 + connectionResult.getErrorCode());
 
-        // TODO(Developer): Check error code and notify the user of error state and resolution.
+
         Toast.makeText(this,
                 "Could not connect to Google API Client: Error " + connectionResult.getErrorCode(),
                 Toast.LENGTH_SHORT).show();

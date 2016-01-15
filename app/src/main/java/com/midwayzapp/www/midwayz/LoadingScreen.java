@@ -1,26 +1,20 @@
 package com.midwayzapp.www.midwayz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
 import android.widget.TextView;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.io.BufferedInputStream;
-import java.io.InputStreamReader;
-import java.lang.StringBuilder;
+import android.location.Geocoder;
+import java.util.List;
+import android.location.Address;
+import java.lang.Math;
 
 
 
 public class LoadingScreen extends AppCompatActivity {
-//http://javapapers.com/android/android-geocoding-to-get-latitude-longitude-for-an-address/
+    //http://javapapers.com/android/android-geocoding-to-get-latitude-longitude-for-an-address/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,77 +22,84 @@ public class LoadingScreen extends AppCompatActivity {
 
         LatLng Add1Cord = null;
         LatLng Add2Cord = null;
+        LatLng AddMCord = null;
 
         String loadadd1 = getIntent().getStringExtra("Address 1");
         String loadadd2 = getIntent().getStringExtra("Address 2");
 
-        Add1Cord = getLatLongFromAddress(loadadd1);
-        Add2Cord = getLatLongFromAddress(loadadd2);
+        Add1Cord = getLocationFromAddress(loadadd1);
+        Add2Cord = getLocationFromAddress(loadadd2);
 
-        TextView Tester = (TextView)
-                findViewById(R.id.TestText);
-        Tester.setText(Add1Cord.toString());
+
+        //TODO Decide geo vs Midpt
+
+        AddMCord = GeoMidpoint(Add1Cord,Add2Cord);
+
+        TextView myAwesomeTextView = (TextView) findViewById(R.id.TestText);
+        myAwesomeTextView.setText(AddMCord.toString());
+
+        //final String add1 = TestTex.getText().toString();
+
+        Intent pushtoLoad = new Intent(getApplicationContext(), MapView.class); // change second param to loading
+        pushtoLoad.putExtra("Lat 1", Add1Cord.latitude);
+        pushtoLoad.putExtra("Lng 1", Add1Cord.longitude);
+        pushtoLoad.putExtra("Lat 2", Add2Cord.latitude);
+        pushtoLoad.putExtra("Lng 2", Add2Cord.longitude);
+        pushtoLoad.putExtra("Lat M", AddMCord.latitude);
+        pushtoLoad.putExtra("Lng M", AddMCord.longitude);
+
+        startActivity(pushtoLoad);
+
+
+
+        //TODO Make the Lat Lng into individual longs to send info over Also decide when to use geo vs midpt.TM .
 
     }
 
+    public LatLng getLocationFromAddress(String strAddress) {
 
-    //TODO ASync Task
+        Geocoder coder = new Geocoder(this);
+        List<Address> address;
+        LatLng p1 = null;
 
-    public static LatLng getLatLongFromAddress(String youraddress)
-    {
-
-        HttpURLConnection connection;
-        String uri = "http://maps.google.com/maps/api/geocode/json?address=" + youraddress + "&sensor=false" ;
-        LatLng returner = null;
         try {
-            URL url = new URL(uri); //TODO
-            connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
-            StringBuilder stringBuilder = new StringBuilder();
-
-
-            JSONObject jsonObject = null;
-            try {
-                jsonObject = new JSONObject(stringBuilder.toString());
-
-                double lng = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                        .getJSONObject("geometry").getJSONObject("location")
-                        .getDouble("lng");
-
-                double lat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                        .getJSONObject("geometry").getJSONObject("location")
-                        .getDouble("lat");
-                returner = new LatLng(lat, lng);
-
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
             }
-            catch (JSONException e)
-            {
-                e.printStackTrace();
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
 
-            }
+            p1 = new LatLng(location.getLatitude(), location.getLongitude());
+            //* 1E6
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-
-
-        catch (MalformedURLException e)
-            {
-                e.printStackTrace();
-            }
-        catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
-
-
-    return returner;
+        return p1;
     }
 
-    LatLng Midpoint(String address1, String address2 )
-    {
+    LatLng GeoMidpoint(LatLng LocA, LatLng LocB) {
 
+        double lat1 = LocA.latitude * Math.PI / 180;
+        double lat2 = LocB.latitude * Math.PI / 180;
 
-        return null;
+        double lon1 = LocA.longitude * Math.PI / 180;
+        double lon2 = LocB.longitude * Math.PI / 180;
+
+        double dlon = lon2 -lon1;
+
+        double x = Math.cos(lat2) * Math.cos(dlon);
+        double y = Math.cos(lat2) * Math.sin(dlon);
+
+        double lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2),
+                Math.sqrt((Math.cos(lat1) + x) * (Math.cos(lat1) + x) + (y * y)));
+        double lon3 = lon1 + Math.atan2(y, Math.cos(lat1) + x);
+
+        LatLng returner = new LatLng (lat3 * 180 / Math.PI,lon3 * 180 / Math.PI);
+
+        return returner;
     }
 
 }
+

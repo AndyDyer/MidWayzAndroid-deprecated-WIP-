@@ -22,6 +22,14 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+
+
+
+
+
+        String loadadd1 = getIntent().getStringExtra("Address 1");
     }
 
 
@@ -29,7 +37,6 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
@@ -37,10 +44,22 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        LatLng PointA = null;
+        LatLng PointB = null;
+        LatLng MidPoint = null;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        PointA = new LatLng((getIntent().getDoubleExtra("Lat 1", 1)), getIntent().getDoubleExtra("Lng 1", 1));
+        PointB = new LatLng((getIntent().getDoubleExtra("Lat 2", 1)), getIntent().getDoubleExtra("Lng 2", 1));
+        MidPoint = new LatLng((getIntent().getDoubleExtra("Lat M", 1)), getIntent().getDoubleExtra("Lng M", 1));
+
+        mMap.addMarker(new MarkerOptions().position(PointA).title("Point A"));
+        mMap.addMarker(new MarkerOptions().position(PointB).title("Point B"));
+        mMap.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(10)); // TODO Change to be relative to mid points.
+
+        // TODO Build UI time from point a and b n such
+
+        // TODO http://developer.android.com/training/volley/request.html need to use this to establish distances in terms of time
     }
 }
