@@ -2,228 +2,235 @@
 <items version="2" >
 
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-e193c686178f4f77551d333581eaee6c690370cd.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-2ba7dd0597e61b6c73c2de977f8275da33786f76.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-d013a063904c925e63220bbe5d995b6b0da879fc.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-6f2ac5916ac3353987ecb8347d3409cf245a503a.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-5b06e24aa3375b68068668a5a82c1d2d4fbe8800.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-3d4fa7666c5086997a79ce13115651a1e7b7e2a1.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-75321c40dd7f4b31bb62bbde2be02f9c07a58e18.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-fc54ab5af0bcc09f1a0fcf387bfa823010a9dd28.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-6c1661cdde71a52318b3d6ebd99d93b9648f8c0c.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-92b307736403a08eb98c9d4eecb8e3db31710a3c.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="04de44f90606c77f3b28cf44861f306290505aac">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-23ff8118967171c60a929f922d9e5237ba85d7ee.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-bb8ddcc59e086f56a4e732450cba51abec35883f.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-ba9afec7b9e8d901231e307a07700d9d3fbe313a.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-b9e324933cc84bfbd4727ebd33131a2c1587d948.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-31457f04f13ccf9c1cd83d7cb28993853c49a237.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-7c86ad6bd502dc215a2057200cb279d5218a8a64.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-0a924b6ded58dff81537e5e2f65ad5739df38a68.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-c550e7a08e782bdb4317ca60158eacc8809317d1.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-226d52ef9d9eca929da4997fbcff1abe4e94dbc6.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-e393ea5b86aaea4d2bc55e30106a805f13d51226.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/httpclient-android-4.3.5.1-970e41f5e3f40c8261d1127fd32d449a25336014.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/8.4.0/jars/classes.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-dfca13d8efdb5e7eecba594cf6071bc074a0385f.jar" />
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-6ca2fb11c6cf314289ceccb99e708b40135a7c28.jar" />
     </item>
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-145ccb991c87a2c02df0bf16f1da248f76e9c57d.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-9f7299fe85b112d5054abb74fda19e63ea5549e1.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-d3496e3e930eb75598dbe32656a0e22942226860.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/8.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-52979d761d6e577b4daa946f815e038bfe72d05b.jar" />
-    </item>
-    <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.4.0/jars/classes.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-a3ba45d05dbb7cb133a584245a91a44aafa41059.jar" />
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-0684641c98f7466a738f25018299d01c56ca110f.jar" />
     </item>
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/8.4.0/jars/classes.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-bb00fa777665a490b04e8f140f50e591811c7974.jar" />
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-82cec0b4d73b6036865a2c00d931139b4041136f.jar" />
     </item>
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/8.4.0/jars/classes.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-37aebd96cd278bc83fec529ba20e60cfeef10530.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-ca765f20e66eb460af2a41c5f65437e8583d277e.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-96b305266faabbcd7bb3f40a4d31c25d827a1b4d.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-86fd958ecf497f04ae653e4e3bf38ed571a8f603.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-5db4ab882718111710fcbb32e5b36605b6cbbe2d.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/internal_impl-23.0.0-f529f9a2413467b0e399e2b339ffc998861ba0f0.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-e210cb295617981829f1a0b56bb523f279edd94f.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-e18f8eeea0b004450952f567c3624cecca650aa6.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/internal_impl-23.1.1-36db51abb503e6d62d4f9cc961492763680177b9.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-c360be5a11aa53d4c3efa9d246b348abf05d357f.jar" />
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-e16e309ac8761ba195e91fff088b695d56b02331.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-a8303f13946f3784a001cf4ddd420cf15bf568c1.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-877ef81bd11a3c11929be186505d40711cdebda0.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-75f0e36670f2194f342b5a59bade32dcf7864742.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-caef32f305cf86bb0e3c9b8a21508173e6336a2c.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-bec50b1d3c15765650a9499df7f94bb98fefd49b.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-8d4f76bd3d998ff786f30334f59e7d7fbf0851cd.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-908e7bd57de58741c7401b73091f257b2ed1baaa.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-f5d33c1cdba32cdcf122e8c6b399cea3415eebd0.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-b43edf4d5dd4b6022f4323bd1e3faf0a2e5b91ee.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-42d25b549013cf2be005e2284725f57589140fe8.jar" />
     </item>
     <item
         jar="/Users/andrew/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-b0106c34f0fba56c9cbe2d33f5c4e7f17423fb59.jar" />
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/support-annotations-23.1.1-b0106c34f0fba56c9cbe2d33f5c4e7f17423fb59.jar" />
     </item>
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-6f754a360a47fd41f431820dc66a7e2b74ce36be.jar" />
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-be289bca31d069bb8c37ff691f42a92bbe7bb36e.jar" />
     </item>
     <item
-        jar="/Users/andrew/Desktop/Midwayz/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/8.4.0/jars/classes.jar"
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
-        <dex dex="/Users/andrew/Desktop/Midwayz/app/build/intermediates/pre-dexed/debug/classes-cb3c95072cb0901a57f963e42ff850188ac9497d.jar" />
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-45472089e65a351d2457cbcdc93b2022fa6d0e6e.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-79c654fecd1a50fa83bc4d561b3ee8dfbecb48a1.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/midwayz-android/volley/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9a198bfed40c9b77df986cb28f7db5262e50289e">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-a666c516d0076e9342f146a9e55779bdaf0cce72.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-c0caed3d5ec80835d52e27325849ab7e4f92de11.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-f72c6cce469b1f48e89de2daea2f5c7ec408b078.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/httpclient-android-4.3.5.1-970e41f5e3f40c8261d1127fd32d449a25336014.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-d9778c19c07d1781f4abf83f659583cd26b1762d.jar" />
+    </item>
+    <item
+        jar="/Users/andrew/midwayz-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/andrew/midwayz-android/app/build/intermediates/pre-dexed/release/classes-aa58ed66dfd7ab8b3be23853ba634544912f05d5.jar" />
     </item>
 
 </items>

@@ -45,7 +45,7 @@ public class Address extends AppCompatActivity
     private AutoCompleteTextView mAutocompleteView1;
     private AutoCompleteTextView mAutocompleteView2;
     private static final LatLngBounds BOUNDS_CONT_US= new LatLngBounds(
-              new LatLng(47.129951, -127.265625), new LatLng(23.362429, -72.421875));
+               new LatLng(23.362429, -72.421875),new LatLng(47.129951, -127.265625));
 
 
     @Override

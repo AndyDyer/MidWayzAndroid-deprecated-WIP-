@@ -2,4 +2,5 @@
     <string name="app_name">Midwayz</string>
     <string name="title_activity_loading_screen">LoadingScreen</string>
     <string name="title_activity_map_view">MapView</string>
+
 </resources>
