@@ -22,5 +22,8 @@
     <string name="google_places_key" translatable="false" templateMergeStrategy="preserve">
          AIzaSyDeti5CUXCd8Ty2kf6m2955fS8NP4NhZdw
     </string>
+    <string name="google_app_id" translatable="false" templateMergeStrategy="preserve">
+         AIzaSyDeti5CUXCd8Ty2kf6m2955fS8NP4NhZdw
+    </string>
 </resources>
 

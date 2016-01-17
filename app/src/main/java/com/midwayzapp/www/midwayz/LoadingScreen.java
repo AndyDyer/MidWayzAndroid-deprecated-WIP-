@@ -50,15 +50,19 @@ import android.app.ListActivity;
 
  public class LoadingScreen extends AppCompatActivity  {
     //http://javapapers.com/android/android-geocoding-to-get-latitude-longitude-for-an-address/
-    private RequestQueue mRequestQueue;
+
      LatLng Add1Cord = null;
      LatLng Add2Cord = null;
      LatLng AddMCord = null;
-     ArrayList<String> values;
-     ArrayAdapter<String> adapter;
+    List<String> values = new ArrayList<String>();
+    String Tester = "";
+     private static final String TAG = "JSONRequester";
+
+
+
      @Override
     protected void onCreate(Bundle savedInstanceState) {
-         values = new ArrayList<String>();
+         ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_screen);
 
@@ -69,17 +73,18 @@ import android.app.ListActivity;
         Add2Cord = getLocationFromAddress(loadadd2);
 
 
-        TripTime(Add1Cord,Add2Cord, 1);
 
+        TripTime(Add1Cord, Add2Cord, 1);
 
+        Tester = values.toString();
+
+         TextView myAwesomeTextView = (TextView)findViewById(R.id.TestText);
+         myAwesomeTextView.setText(Tester);
         //TODO Decide geo vs Midpt
-
         AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
 
 
-
-        //final String add1 = TestTex.getText().toString();
-
+/*
         Intent pushtoLoad = new Intent(getApplicationContext(), MapView.class); // change second param to loading
         pushtoLoad.putExtra("Lat 1", Add1Cord.latitude);
         pushtoLoad.putExtra("Lng 1", Add1Cord.longitude);
@@ -89,7 +94,7 @@ import android.app.ListActivity;
         pushtoLoad.putExtra("Lng M", AddMCord.longitude);
 
         startActivity(pushtoLoad);
-
+*/
 
 
         //TODO Make the Lat Lng into individual longs to send info over Also decide when to use geo vs midpt.TM .
@@ -141,70 +146,29 @@ import android.app.ListActivity;
         return returner;
     }
 
-     public RequestQueue getReqQueue() {
-         if (mRequestQueue == null) {
-             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
-         }
 
-         return mRequestQueue;
-     }
 
-     public <T> void addToReqQueue(Request<T> req, String tag) {
+    public void TripTime (LatLng Start, LatLng Finish, int Mode) {
 
-         getReqQueue().add(req);
-     }
 
-     public <T> void addToReqQueue(Request<T> req) {
+        //TextView myAwesomeTextView = (TextView)findViewById(R.id.TestText);
+        // myAwesomeTextView.setText(url);
+        //JSON Request
+        double StartLat = Start.latitude;
+        double StartLng = Start.longitude;
 
-         getReqQueue().add(req);
-     }
+        double FinishLat = Finish.latitude;
+        double FinishLng = Finish.longitude;
 
-     public void cancelPendingReq(Object tag) {
-         if (mRequestQueue != null) {
-             mRequestQueue.cancelAll(tag);
-         }
-     }
-
-    private void TripTime (LatLng Start, LatLng Finish, int Mode)
-    {
-    //JSON Request
-    String StartLoc = Start.toString();
+        String StartLoc = Start.toString();
         String FinishLoc = Finish.toString();
-        String gmapskey = getString(R.string.google_maps_key);
-//https://maps.googleapis.com/maps/api/directions/json?origin=STARTLOCAT%20&destination=ENDLOCAT&mode=MODE&avoid=highways&key=GOOGLE KEY
 
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + StartLoc +
-                "%20&destination="+ FinishLoc +
+        String gmapskey = getString(R.string.google_maps_key);
+        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + StartLat + "," + StartLng +
+                "%20&destination=" + FinishLat + "," + FinishLng +
                 "&mode=MODE&avoid=tolls&key=" + gmapskey;
 
-
-        JsonArrayRequest jreq = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject jo = response.getJSONObject(i);
-                                String name = jo.getString("text");
-                                values.add(name);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        adapter.notifyDataSetChanged();
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        });
-
     }
-
 
 }
 
