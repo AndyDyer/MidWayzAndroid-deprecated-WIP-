@@ -22,12 +22,8 @@ import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.Request.Method;
-import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -36,17 +32,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.ArrayAdapter;
+
 import java.util.ArrayList;
-import android.widget.Toast;
-import android.app.ListActivity;
+
 
  public class LoadingScreen extends AppCompatActivity  {
     //http://javapapers.com/android/android-geocoding-to-get-latitude-longitude-for-an-address/
@@ -54,15 +42,26 @@ import android.app.ListActivity;
      LatLng Add1Cord = null;
      LatLng Add2Cord = null;
      LatLng AddMCord = null;
-    List<String> values = new ArrayList<String>();
-    String Tester = "";
+
+
+/*
+     //OBJECT
+     public LatLng cord;
+     public int Time;
+     public String Name;
+
+     public LoadingScreen(String namer, int timer, LatLng corder)
+     {
+         cord = corder;
+         Time = timer;
+         Name = namer;
+     }
+  */
      private static final String TAG = "JSONRequester";
-
-
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
-         ;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_screen);
 
@@ -71,15 +70,16 @@ import android.app.ListActivity;
 
         Add1Cord = getLocationFromAddress(loadadd1);
         Add2Cord = getLocationFromAddress(loadadd2);
+/*
+        LoadingScreen Cord1 = new LoadingScreen(0,Add1Cord,"Cord1");
+        LoadingScreen Cord2 = new LoadingScreen(0,Add1Cord,"Cord2");
+*/
+
+         TripTime(Add1Cord,Add2Cord,3);
 
 
 
-        TripTime(Add1Cord, Add2Cord, 1);
 
-        Tester = values.toString();
-
-         TextView myAwesomeTextView = (TextView)findViewById(R.id.TestText);
-         myAwesomeTextView.setText(Tester);
         //TODO Decide geo vs Midpt
         AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
 
@@ -95,8 +95,6 @@ import android.app.ListActivity;
 
         startActivity(pushtoLoad);
 */
-
-
         //TODO Make the Lat Lng into individual longs to send info over Also decide when to use geo vs midpt.TM .
 
     }
@@ -147,13 +145,12 @@ import android.app.ListActivity;
     }
 
 
-
+//TODO Add in modeality
     public void TripTime (LatLng Start, LatLng Finish, int Mode) {
 
-
-        //TextView myAwesomeTextView = (TextView)findViewById(R.id.TestText);
-        // myAwesomeTextView.setText(url);
+        final TextView TestTV = (TextView)findViewById(R.id.TestText);
         //JSON Request
+
         double StartLat = Start.latitude;
         double StartLng = Start.longitude;
 
@@ -168,7 +165,33 @@ import android.app.ListActivity;
                 "%20&destination=" + FinishLat + "," + FinishLng +
                 "&mode=MODE&avoid=tolls&key=" + gmapskey;
 
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        TestTV.setText("Response is: " + response);
+                        //TODO Add to a
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                TestTV.setText("That didn't work!");
+            }
+                });
+       queue.add(stringRequest);
     }
+/*
+ JSONObject jsonObject = new JSONObject(response);
+             JSONArray routesArray = jsonObject.getJSONArray("routes");
+             JSONObject route = routesArray.getJSONObject(0);
+             JSONArray legs = route.getJSONArray("legs");
+             JSONObject leg = legs.getJSONObject(0);
+             JSONObject durationObject = leg.getJSONObject("duration");
+             duration = durationObject.getString("text");
+ */
 
 }
 
