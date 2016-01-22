@@ -4,4 +4,9 @@
     <string name="title_activity_map_view">MapView</string>
     <string name="title_activity_yelp_results">YelpResults</string>
 
+    <string name="consumer_key">QKodnM4cvgney-eyscrl6g</string>
+    <string name="consumer_secret">voK2W34WBrqReDvd8PZ_9WWFZ-k</string>
+    <string name="token">hONXwy3QeD-Fd-uWQY0cuMeJOvTRTZZ5</string>
+    <string name="token_secret">t-wyckuw6OvUktL8XAyPA4zckT4</string>
+
 </resources>
