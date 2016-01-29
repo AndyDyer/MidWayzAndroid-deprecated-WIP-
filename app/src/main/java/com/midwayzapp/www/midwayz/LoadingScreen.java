@@ -84,7 +84,7 @@ import java.util.ArrayList;
         AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
 
 
-/*
+
         Intent pushtoLoad = new Intent(getApplicationContext(), MapView.class); // change second param to loading
         pushtoLoad.putExtra("Lat 1", Add1Cord.latitude);
         pushtoLoad.putExtra("Lng 1", Add1Cord.longitude);
@@ -94,7 +94,7 @@ import java.util.ArrayList;
         pushtoLoad.putExtra("Lng M", AddMCord.longitude);
 
         startActivity(pushtoLoad);
-*/
+
         //TODO Make the Lat Lng into individual longs to send info over Also decide when to use geo vs midpt.TM .
 
     }

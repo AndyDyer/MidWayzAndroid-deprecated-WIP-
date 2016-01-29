@@ -1,5 +1,6 @@
 package com.midwayzapp.www.midwayz;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -26,10 +27,12 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
 
 
+        Intent pushtoLoad = new Intent(getApplicationContext(), YelpResults.class); // change second param to loading
+
+        startActivity(pushtoLoad);
 
 
-
-        String loadadd1 = getIntent().getStringExtra("Address 1");
+       // String loadadd1 = getIntent().getStringExtra("Address 1");
     }
 
 
