@@ -56,27 +56,19 @@ public class YelpResults extends Activity {
             YelpBusiness yelp = new YelpBusiness();
             yelp.setTitle(obj.getString("name"));
             Log.v(TAG, " PROCESSJSON: Business Name: " + obj.getString("name"));
-            yelp.setThumbnailUrl(obj.getString("image_url"));
+            yelp.setThumbnailUrl( obj.getString("image_url"));
             yelp.setRating(obj.getDouble("rating"));
             yelp.setRatingpic(obj.getString("rating_img_url_small"));
             yelp.setRating(((Number) obj.get("rating")).doubleValue());
             yelp.setPhonenumber("display_phone");
-
-
             /*
-            //TODO Lat and Lng + Genre Verification
-            JSONArray locat = obj.getJSONArray("location");
-            yelp.setLatLng(locat.getString("latitude"),);
-
-
-            JSONArray genreArry = obj.getJSONArray("categories");
-            ArrayList<String> genre = new ArrayList<String>();
-            for (int j = 0; j < genreArry.length(); j++) {
-                genre.add((String) genreArry.get(j));
-            }
-            yelp.setGenre(genre);
-
+            JSONObject structure = (JSONObject) obj.get("location");
+            yelp.setLatLng(structure.getDouble("latitude"),structure.getDouble("longitude"));
+            Log.v(TAG,"LATLNG:" + yelp.getLatLng().toString());
             */
+
+
+            //TODO Lat and Lng + Genre Verification
             yelpList.add(yelp);
 
         }
@@ -95,7 +87,7 @@ public class YelpResults extends Activity {
         final Yelp yelp = new Yelp(consumerKey, consumerSecret, token, tokenSecret);
 
         protected String doInBackground(Void... params) {
-            String response = yelp.searchForBusinessesByLocation("burritos", "SanFrancisco");
+            String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "37.7833,-122.4167"); //TODO Add in LATLNGTerms into  ASYNCcall
             Log.v(TAG, "Response:" + response);
             return response;
         }
