@@ -32,7 +32,7 @@ public class NetworkImageViewTest {
     }
 
     // public void testSetImageUrl_setsMaxSize() {
-    // // TODO: Not sure how to make getWidth() return something from an
+    // //
     // // instrumentation test. Write this test once it's figured out.
     // }
 

@@ -8,5 +8,6 @@
     <string name="consumer_secret">voK2W34WBrqReDvd8PZ_9WWFZ-k</string>
     <string name="token">hONXwy3QeD-Fd-uWQY0cuMeJOvTRTZZ5</string>
     <string name="token_secret">t-wyckuw6OvUktL8XAyPA4zckT4</string>
+    <string name="desc">This is a Yelp Image</string>
 
 </resources>

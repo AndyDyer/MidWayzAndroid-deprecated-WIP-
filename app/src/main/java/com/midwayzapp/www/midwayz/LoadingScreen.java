@@ -95,7 +95,7 @@ import java.util.ArrayList;
 
         startActivity(pushtoLoad);
 
-        //TODO Make the Lat Lng into individual longs to send info over Also decide when to use geo vs midpt.TM .
+        //TODO decide when to use geo vs midpt.TM .
 
     }
 
@@ -145,7 +145,7 @@ import java.util.ArrayList;
     }
 
 
-//TODO Add in modeality
+
     public void TripTime (LatLng Start, LatLng Finish, int Mode) {
 
         final TextView TestTV = (TextView)findViewById(R.id.TestText);
@@ -173,7 +173,7 @@ import java.util.ArrayList;
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         TestTV.setText("Response is: " + response);
-                        //TODO Add to a
+
                     }
                 }, new Response.ErrorListener() {
             @Override

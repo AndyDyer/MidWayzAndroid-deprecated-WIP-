@@ -61,7 +61,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10)); // TODO Change to be relative to mid points.
 
-        // TODO Build UI time from point a and b n such
+        //
 
         // TODO http://developer.android.com/training/volley/request.html need to use this to establish distances in terms of time
     }

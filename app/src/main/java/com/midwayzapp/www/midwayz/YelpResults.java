@@ -1,12 +1,9 @@
 package com.midwayzapp.www.midwayz;
 
-import android.app.ListActivity;
-import android.content.Intent;
-import android.net.Uri;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
+
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,10 +12,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import android.os.AsyncTask.Status;
 import java.util.List;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import android.util.Log;
 import android.app.Activity;
 
@@ -27,13 +23,20 @@ import android.app.Activity;
 public class YelpResults extends Activity {
 
     private static final String TAG = YelpResults.class.getSimpleName();
-
-    // Movies json url
     private static final String url = null;
 
     // private ProgressDialog pDialog;
-    private List<YelpBusiness> yelpList = new ArrayList<YelpBusiness>();
-    private ListView listView;
+    private ArrayList<YelpBusiness> yelpList = new ArrayList<YelpBusiness>();
+
+
+
+    public YelpAdapter adapter;
+    public  ArrayList<YelpBusiness> arrayOfbiz;
+    public ListView listView;
+
+
+    //to clear adapter.clear();
+
 
 
     @Override
@@ -41,26 +44,65 @@ public class YelpResults extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp_results);
 
-        new YelpASync().execute(null,null,null);
 
-        //TODO draw yelplist to  List adapter.
+        // Construct the data source
+        ArrayList<YelpBusiness> arrayOfbiz = new ArrayList<YelpBusiness>();
+        // Create the adapter to convert the array to views
+        YelpAdapter adapter = new YelpAdapter(this, arrayOfbiz);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.yelpListView);
+        listView.setAdapter(adapter);
+
+        AsyncTask task = new YelpASync().execute();
+
+      if (task.getStatus() == AsyncTask.Status.FINISHED )
+      {
+          adapter.addAll(yelpList);
+      }
+
+
+
+        //TODO draw yelplist to  List adapter. https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
 
     }
+    /*
+     this.title = name;
+        this.hours = hours;
+        this.thumbnailUrl = thumbnailUrl;
+        this.phonenumber =phonenumber;
+        this.address = address;
+        this.ratingpic = ratingpic;
+        this.rating = rating;
+        this.category = category;
+        this.LatLong = Latlong;
+     */
 
 
-    public List<YelpBusiness> processJson(String jsonStuff) throws JSONException {
-        JSONObject obj = new JSONObject(jsonStuff);
-        JSONArray businesses = obj.getJSONArray("businesses");
-        ArrayList<YelpBusiness> businessObjs = new ArrayList<YelpBusiness>(businesses.length());
-        for (int i = 0; i < businesses.length(); i++) {
+    public void processJson(String jsonStuff) throws JSONException {
+
+        JSONObject firstObject = new JSONObject(jsonStuff);
+        JSONArray jsonArray = firstObject.getJSONArray("businesses");
+
+        for (int i = 0; i < jsonArray.length(); i++)
+        {
+
+            JSONObject objectInArray = jsonArray.getJSONObject(i);
+
+
+
             YelpBusiness yelp = new YelpBusiness();
-            yelp.setTitle(obj.getString("name"));
-            Log.v(TAG, " PROCESSJSON: Business Name: " + obj.getString("name"));
-            yelp.setThumbnailUrl( obj.getString("image_url"));
-            yelp.setRating(obj.getDouble("rating"));
-            yelp.setRatingpic(obj.getString("rating_img_url_small"));
-            yelp.setRating(((Number) obj.get("rating")).doubleValue());
-            yelp.setPhonenumber("display_phone");
+            yelp.setTitle(objectInArray.getString("name"));
+          //  yelp.setRating(objectInArray.getString("review_count"));
+
+            Log.v(TAG, " PROCESSJSON: Business Name: " + objectInArray.getString("name"));
+            Log.v(TAG, " IsADDED: " + yelp.getTitle());
+
+           // yelp.setThumbnailUrl(objectInArray.getString("image_url"));
+           // yelp.setRatingpic(objectInArray.getString("rating_img_url_small"));
+           // yelp.setPhonenumber(objectInArray.getString("display_phone"));
+
+            // yelp.setRating(((Number) obj.get("rating")).doubleValue()); //TODO Change this to # of ratings. http://stackoverflow.com/questions/6697147/json-iterate-through-jsonarray
+           //
             /*
             JSONObject structure = (JSONObject) obj.get("location");
             yelp.setLatLng(structure.getDouble("latitude"),structure.getDouble("longitude"));
@@ -72,8 +114,22 @@ public class YelpResults extends Activity {
             yelpList.add(yelp);
 
         }
-        return businessObjs;
+
+
+
     }
+    public void TestPopulation()
+    {
+        for (int i = 0; i < 10; i++) {
+            YelpBusiness yelp = new YelpBusiness();
+            yelp.setTitle("Name" + i);
+            yelp.setPhonenumber("949" + i);
+            yelp.setAddress(i + "Lane");
+            yelpList.add(yelp);
+        }
+    }
+
+
 
 
     public class YelpASync extends AsyncTask<Void, Void, String> {
@@ -87,7 +143,8 @@ public class YelpResults extends Activity {
         final Yelp yelp = new Yelp(consumerKey, consumerSecret, token, tokenSecret);
 
         protected String doInBackground(Void... params) {
-            String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "37.7833,-122.4167"); //TODO Add in LATLNGTerms into  ASYNCcall
+           // String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "42.3600,-71.0568"); //
+            String response = yelp.searchForBusinessesByLocation("restaurant", "1 Faneuil Hall Sq, Boston, MA 02109"); //TODO Take LatLng and ReverseGeocode lol fuck me.
             Log.v(TAG, "Response:" + response);
             return response;
         }
@@ -101,7 +158,11 @@ public class YelpResults extends Activity {
                 processJson(result);
             } catch (JSONException e) {
                 Log.v(TAG, "Failed to Parse Response");
+
             }
+
+
+
         }
 
 
