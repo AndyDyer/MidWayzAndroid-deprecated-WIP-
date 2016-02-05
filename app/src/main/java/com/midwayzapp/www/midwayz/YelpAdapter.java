@@ -28,13 +28,15 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
         TextView tvAddress = (TextView) convertView.findViewById(R.id.tvAddress);
         TextView tvReviews = (TextView) convertView.findViewById(R.id.tvReviews);
+        TextView tvPhone =  (TextView) convertView.findViewById(R.id.tvPhone);
         ImageView ivMain = (ImageView) convertView.findViewById(R.id.ivMainPhoto);
         ImageView ivReview = (ImageView) convertView.findViewById(R.id.ivReviewPhoto);
 
         // Populate the data into the template view using the data object
         tvName.setText(yelpbiz.getTitle());
-        //tvAddress.setText(yelpbiz.getAddress());
-        //tvReviews.setText(yelpbiz.getRating());
+        tvAddress.setText(yelpbiz.getAddress().substring(2,yelpbiz.getAddress().length()-2));
+        tvReviews.setText("Reviews: "+yelpbiz.getRating());
+        tvPhone.setText(yelpbiz.getPhonenumber());
         //ivMain.setImageBitmap(yelpbiz.GETBITMAP); http://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android
         //ivMain.setReview(yelp.biz.getREVIEW);
 

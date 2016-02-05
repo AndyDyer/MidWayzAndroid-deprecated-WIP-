@@ -42,14 +42,15 @@
         android:text="Reviews"
         android:layout_alignTop="@+id/tvAddress"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="63dp"
+        android:layout_marginEnd="15dp"
         android:layout_alignBottom="@+id/tvAddress" />
     <ImageView
         android:layout_width="75dp"
         android:layout_height="25dp"
         android:id="@+id/ivReviewPhoto"
-        android:layout_alignBottom="@+id/tvHours"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginEnd="27dp"
+        android:layout_alignTop="@+id/tvReviews"
+        android:layout_toStartOf="@+id/tvReviews" />
 
 
     </RelativeLayout>

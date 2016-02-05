@@ -44,13 +44,19 @@ public class YelpResults extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp_results);
 
-
+/*
         // Construct the data source
         ArrayList<YelpBusiness> arrayOfbiz = new ArrayList<YelpBusiness>();
         // Create the adapter to convert the array to views
         YelpAdapter adapter = new YelpAdapter(this, arrayOfbiz);
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.yelpListView);
+        listView.setAdapter(adapter);
+*/
+
+        arrayOfbiz = new ArrayList<YelpBusiness>();
+        adapter = new YelpAdapter(this,arrayOfbiz);
+        listView = (ListView) findViewById(R.id.yelpListView);
         listView.setAdapter(adapter);
 
         AsyncTask task = new YelpASync().execute();
@@ -87,21 +93,43 @@ public class YelpResults extends Activity {
         {
 
             JSONObject objectInArray = jsonArray.getJSONObject(i);
-
-
-
             YelpBusiness yelp = new YelpBusiness();
+
             yelp.setTitle(objectInArray.getString("name"));
-          //  yelp.setRating(objectInArray.getString("review_count"));
+            yelp.setRating(objectInArray.getString("review_count"));
 
             Log.v(TAG, " PROCESSJSON: Business Name: " + objectInArray.getString("name"));
-            Log.v(TAG, " IsADDED: " + yelp.getTitle());
+            Log.v(TAG, " isAddedTitle: " + yelp.getTitle());
+            Log.v(TAG, " isAddedRev: " + yelp.getRating());
 
-           // yelp.setThumbnailUrl(objectInArray.getString("image_url"));
-           // yelp.setRatingpic(objectInArray.getString("rating_img_url_small"));
-           // yelp.setPhonenumber(objectInArray.getString("display_phone"));
 
-            // yelp.setRating(((Number) obj.get("rating")).doubleValue()); //TODO Change this to # of ratings. http://stackoverflow.com/questions/6697147/json-iterate-through-jsonarray
+            yelp.setPhonenumber(objectInArray.getString("display_phone"));
+            yelp.setThumbnailUrl(objectInArray.getString("image_url"));
+            yelp.setRatingpic(objectInArray.getString("rating_img_url_small"));
+
+            Log.v(TAG, " isAddedPhone: " + yelp.getPhonenumber());
+            Log.v(TAG, " isAddedThumb: " + yelp.getThumbnailUrl());
+            Log.v(TAG, " isAddedRating: " + yelp.getRatingpic());
+
+
+
+            //JSONArray locArray = objectInArray.getJSONArray("location");
+            JSONObject locObj = new JSONObject(objectInArray.getString("location"));
+
+            yelp.setAddress(locObj.getString("address"));
+            Log.v(TAG, " isAddedAddress: " + yelp.getAddress());
+
+            JSONObject cordObj = new JSONObject(locObj.getString("coordinate"));
+
+            yelp.setLatLng(cordObj.getDouble("latitude"), cordObj.getDouble("longitude"));
+            Log.v(TAG, " isLatLng: " + yelp.getLatLng());
+
+
+
+
+
+
+             //TODO Change this to # of ratings. http://stackoverflow.com/questions/6697147/json-iterate-through-jsonarray
            //
             /*
             JSONObject structure = (JSONObject) obj.get("location");
@@ -115,7 +143,7 @@ public class YelpResults extends Activity {
 
         }
 
-
+        adapter.addAll(yelpList);
 
     }
     public void TestPopulation()
