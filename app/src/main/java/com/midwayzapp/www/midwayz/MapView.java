@@ -22,14 +22,17 @@ import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapView extends FragmentActivity implements OnMapReadyCallback {
+public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMarkerDragListener {
 
     private GoogleMap mMap;
+    private GoogleMap mMap2;
     public String TAG = "MAPVIEW";
 
    public LatLng PointA;
@@ -38,6 +41,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     public String MidAddress;
     Button toLoad;
     public OnMarkerDragListener dragListen;
+    public AsyncTask Steve;
 
     private ArrayList<YelpBusiness> yelpList = new ArrayList<YelpBusiness>();
     @Override
@@ -56,7 +60,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         //Intent pushtoLoad = new Intent(getApplicationContext(), YelpResults.class); // change second param to loading
 
        // AsyncTask task = new YelpASync().execute();
-        new YelpASync().execute();
+
         //startActivity(pushtoLoad);
 
 
@@ -90,6 +94,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap2 = googleMap;
         MidAddress = getIntent().getStringExtra("MAddress");
         PointA = new LatLng((getIntent().getDoubleExtra("Lat 1", 1)), getIntent().getDoubleExtra("Lng 1", 1));
         PointB = new LatLng((getIntent().getDoubleExtra("Lat 2", 1)), getIntent().getDoubleExtra("Lng 2", 1));
@@ -98,23 +103,54 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(12));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         // TODO Change to be relative to mid points.
-        // TODO OnDragListener Implementation.
+        // TODO Make so point and A and B cannot be cleared see WILLS solution
 
-        mMap.setOnMarkerDragListener(dragListen);
+
+        mMap.setOnMarkerDragListener(this);
+
+       new YelpASync().execute();
+
+
+    }
+    @Override
+    public void onMarkerDragStart(Marker marker) {
     }
 
-    public void PlaceMarkers(ArrayList<YelpBusiness> mylisty)
-    {
-        mMap.addMarker(new MarkerOptions().position(PointA).title("Point A"));
-        mMap.addMarker(new MarkerOptions().position(PointB).title("Point B"));
-        mMap.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        MidPoint = marker.getPosition();
+        MidAddress = getAddressFromLocation(MidPoint);
+        mMap.clear();
+        yelpList.clear();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
+        new YelpASync().execute();
+    }
+    @Override
+    public void onMarkerDrag(Marker marker) {
 
+    }
+
+
+    public void PlaceMarkers(ArrayList<YelpBusiness> mylisty) {
+        mMap2.addMarker(new MarkerOptions().position(PointA).title("Point A"));
+        mMap2.addMarker(new MarkerOptions().position(PointB).title("Point B"));
+        mMap2.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+
+/*  //TODO check will's to see how he did that.
+        //TODO Possible option for removing markers to maintain smoothness and allow .remove as opposed to clearing principal A and B markers
+        // but fuck me is this convoluted.
+        Marker marker1 = mMap.addMarker(new MarkerOptions().position(yelpList.get(yelpList.size()-(yelpList.size()-1)).getLatLngT()).title(yelpList.get(52).getTitle()));
+       */
+
+        /*
         for(int i = 0; i < mylisty.size();i++)
         {
-            mMap.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()));
-        }
+         mMap.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()));
+
+        }*/
     }
 
 
@@ -184,7 +220,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
         protected String doInBackground(Void... params) {
             // String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "42.3600,-71.0568"); //
-            String response = yelp.searchForBusinessesByLocation("restaurant", MidAddress); //TODO Take LatLng and ReverseGeocode lol fuck me.
+            String response = yelp.searchForBusinessesByLocation("restaurant", MidAddress); 
 
             return response;
         }
@@ -195,10 +231,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
         protected void onPreExecute()
         {
-            MidAddress = getIntent().getStringExtra("MAddress");
-            PointA = new LatLng((getIntent().getDoubleExtra("Lat 1", 1)), getIntent().getDoubleExtra("Lng 1", 1));
-            PointB = new LatLng((getIntent().getDoubleExtra("Lat 2", 1)), getIntent().getDoubleExtra("Lng 2", 1));
-            MidPoint = new LatLng((getIntent().getDoubleExtra("Lat M", 1)), getIntent().getDoubleExtra("Lng M", 1));
+
         }
         protected void onPostExecute(String result) {
             try {
@@ -235,4 +268,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
         return p1;
     }
+
+
+
 }

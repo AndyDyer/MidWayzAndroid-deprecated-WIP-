@@ -17,7 +17,9 @@ import java.util.List;
 
 import android.util.Log;
 import android.app.Activity;
-
+import android.net.Uri;
+import android.content.Intent;
+import android.content.Context;
 
 
 public class YelpResults extends Activity {
@@ -97,13 +99,17 @@ public class YelpResults extends Activity {
 
             yelp.setPhonenumber(objectInArray.getString("display_phone"));
             yelp.setThumbnailUrl(objectInArray.getString("image_url"));
-            yelp.setRatingpic(objectInArray.getString("rating_img_url_small"));
+            yelp.setRatingpic(objectInArray.getString("rating_img_url_small")); // _small
+            yelp.setMobileurl(objectInArray.getString("mobile_url"));
 
             Log.v(TAG, " isAddedPhone: " + yelp.getPhonenumber());
             Log.v(TAG, " isAddedThumb: " + yelp.getThumbnailUrl());
             Log.v(TAG, " isAddedRating: " + yelp.getRatingpic());
 
+            //JSONObject catObj = new JSONObject((objectInArray.getString("categories")));
+            yelp.setCategory(objectInArray.getString("categories"));
 
+            Log.v(TAG, " CATEGORIES CATEGORIES: " + yelp.getCategory());
 
             //JSONArray locArray = objectInArray.getJSONArray("location");
             JSONObject locObj = new JSONObject(objectInArray.getString("location"));
@@ -172,6 +178,11 @@ public class YelpResults extends Activity {
             yelp.setAddress(i + "Lane");
             yelpList.add(yelp);
         }
+    }
+    public static void openURL(Context context, String url) {
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        context.startActivity(intent);
     }
 
 }

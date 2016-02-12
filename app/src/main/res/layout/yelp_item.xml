@@ -5,53 +5,64 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="250dp"
         android:id="@+id/ivMainPhoto"
         android:contentDescription="@string/desc"
-        android:layout_toEndOf="@+id/tvHome" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivMainPhoto" />
+
+
 
     <TextView
-        android:id="@+id/tvPhone"
+        android:id="@+id/tvCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone"
-        android:layout_alignTop="@+id/tvName"
-        android:layout_alignEnd="@+id/tvReviews" />
-
-    <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Address"
-        android:layout_marginTop="33dp"
+        android:text="Category"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/tvName"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
     <TextView
         android:id="@+id/tvReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reviews"
-        android:layout_alignTop="@+id/tvAddress"
+        android:layout_alignTop="@+id/ivReviewPhoto"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
-        android:layout_alignBottom="@+id/tvAddress" />
+        android:linksClickable="true"
+
+        />
+
     <ImageView
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="25dp"
         android:id="@+id/ivReviewPhoto"
-        android:layout_marginEnd="27dp"
-        android:layout_alignTop="@+id/tvReviews"
-        android:layout_toStartOf="@+id/tvReviews" />
+        android:layout_alignTop="@+id/tvCat"
+        android:layout_toStartOf="@+id/tvReviews"
+        android:linksClickable="true"
+
+        android:layout_alignBottom="@+id/tvCat" />
 
 
     </RelativeLayout>
 
+    <!--
+ android:onClick="openBrowser"
+    http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aautoLink
+    android:id="@+id/tvPhone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Phone"
+    android:layout_alignTop="@+id/tvName"
+    android:layout_alignEnd="@+id/tvReviews"
+    android:autoLink="phone"
+    android:linksClickable="true"
+-->

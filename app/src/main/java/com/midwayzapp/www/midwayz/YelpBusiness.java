@@ -8,15 +8,15 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 
 public class YelpBusiness {
-    private String title, thumbnailUrl, phonenumber, address, ratingpic, rating, hours;
-    private ArrayList<String> category;
+    private String title, thumbnailUrl, phonenumber, address, ratingpic, rating, hours, category, mobileurl;
+
     private LatLng LatLong;
 
     public YelpBusiness() {
     }
 
     public YelpBusiness(String name, String thumbnailUrl, String phonenumber, String address, String reviews, String ratingpic,  String rating, LatLng Latlong,
-                 ArrayList<String> category, String hours) {
+                 String category, String hours, String mobileurl) {
         this.title = name;
         this.hours = hours;
         this.thumbnailUrl = thumbnailUrl;
@@ -26,6 +26,7 @@ public class YelpBusiness {
         this.rating = rating;
         this.category = category;
         this.LatLong = Latlong;
+        this.mobileurl =mobileurl;
     }
 
     public String getLatLng() {
@@ -76,11 +77,17 @@ public class YelpBusiness {
     public void setRating(String rating) {
         this.rating = rating;
     }
-    public ArrayList<String> getCategory() {
+    public String getCategory() {
         return category;
     }
-    public void setGenre(ArrayList<String> setCategory) {
-        this.category = category;
+    public void setCategory(String mycat) {
+        this.category = mycat;
+    }
+    public String getMobileurl() {
+        return mobileurl;
+    }
+    public void setMobileurl(String mymob) {
+        this.mobileurl = mymob;
     }
 
     public String getHours() {

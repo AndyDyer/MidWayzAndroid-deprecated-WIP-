@@ -80,7 +80,7 @@ public class AndroidAuthenticator implements Authenticator {
         return mAuthTokenType;
     }
 
-    // TODO: Figure out what to do about notifyAuthFailure
+
     @SuppressWarnings("deprecation")
     @Override
     public String getAuthToken() throws AuthFailureError {

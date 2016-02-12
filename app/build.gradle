@@ -29,6 +29,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-identity:8.4.0'
     compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile project(':volley')
     compile files('src/main/java/lib/jcommander-1.35.jar')
     compile files('src/main/java/lib/json_simple-1.1.jar')

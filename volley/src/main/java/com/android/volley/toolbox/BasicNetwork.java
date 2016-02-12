@@ -159,7 +159,7 @@ public class BasicNetwork implements Network {
                         attemptRetryOnException("auth",
                                 request, new AuthFailureError(networkResponse));
                     } else {
-                        // TODO: Only throw ServerError for 5xx status codes.
+
                         throw new ServerError(networkResponse);
                     }
                 } else {

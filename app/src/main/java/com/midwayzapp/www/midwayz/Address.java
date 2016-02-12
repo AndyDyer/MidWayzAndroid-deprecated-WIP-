@@ -110,6 +110,7 @@ public class Address extends AppCompatActivity
                 AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
                 MAddress = getAddressFromLocation(AddMCord);
                 //TODO Decide geo vs Midpt
+                //TODO Add true midpoint algo
                 Intent pushtoLoad = new Intent(getApplicationContext(), MapView.class); // change second param to loading
 
 
