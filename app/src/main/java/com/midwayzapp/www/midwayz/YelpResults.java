@@ -25,8 +25,9 @@ public class YelpResults extends Activity {
     private static final String TAG = YelpResults.class.getSimpleName();
     private static final String url = null;
 
-    // private ProgressDialog pDialog;
+
     private ArrayList<YelpBusiness> yelpList = new ArrayList<YelpBusiness>();
+    public String MidAddress;
 
 
 
@@ -43,6 +44,8 @@ public class YelpResults extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp_results);
+
+        MidAddress = getIntent().getStringExtra("MAddress");
 
 /*
         // Construct the data source
@@ -68,20 +71,9 @@ public class YelpResults extends Activity {
 
 
 
-        //TODO draw yelplist to  List adapter. https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
+        //TODO BITMAP
 
     }
-    /*
-     this.title = name;
-        this.hours = hours;
-        this.thumbnailUrl = thumbnailUrl;
-        this.phonenumber =phonenumber;
-        this.address = address;
-        this.ratingpic = ratingpic;
-        this.rating = rating;
-        this.category = category;
-        this.LatLong = Latlong;
-     */
 
 
     public void processJson(String jsonStuff) throws JSONException {
@@ -125,36 +117,12 @@ public class YelpResults extends Activity {
             Log.v(TAG, " isLatLng: " + yelp.getLatLng());
 
 
-
-
-
-
-             //TODO Change this to # of ratings. http://stackoverflow.com/questions/6697147/json-iterate-through-jsonarray
-           //
-            /*
-            JSONObject structure = (JSONObject) obj.get("location");
-            yelp.setLatLng(structure.getDouble("latitude"),structure.getDouble("longitude"));
-            Log.v(TAG,"LATLNG:" + yelp.getLatLng().toString());
-            */
-
-
-            //TODO Lat and Lng + Genre Verification
             yelpList.add(yelp);
 
         }
 
         adapter.addAll(yelpList);
 
-    }
-    public void TestPopulation()
-    {
-        for (int i = 0; i < 10; i++) {
-            YelpBusiness yelp = new YelpBusiness();
-            yelp.setTitle("Name" + i);
-            yelp.setPhonenumber("949" + i);
-            yelp.setAddress(i + "Lane");
-            yelpList.add(yelp);
-        }
     }
 
 
@@ -172,7 +140,7 @@ public class YelpResults extends Activity {
 
         protected String doInBackground(Void... params) {
            // String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "42.3600,-71.0568"); //
-            String response = yelp.searchForBusinessesByLocation("restaurant", "1 Faneuil Hall Sq, Boston, MA 02109"); //TODO Take LatLng and ReverseGeocode lol fuck me.
+            String response = yelp.searchForBusinessesByLocation("restaurant", MidAddress); //TODO Take LatLng and ReverseGeocode lol fuck me.
             Log.v(TAG, "Response:" + response);
             return response;
         }
@@ -195,5 +163,16 @@ public class YelpResults extends Activity {
 
 
     }
+    public void TestPopulation()
+    {
+        for (int i = 0; i < 10; i++) {
+            YelpBusiness yelp = new YelpBusiness();
+            yelp.setTitle("Name" + i);
+            yelp.setPhonenumber("949" + i);
+            yelp.setAddress(i + "Lane");
+            yelpList.add(yelp);
+        }
+    }
+
 }
 

@@ -31,6 +31,9 @@ public class YelpBusiness {
     public String getLatLng() {
         return LatLong.toString();
     }
+    public LatLng getLatLngT() {
+        return LatLong;
+    }
     public void setLatLng(double lat, double lng)
     {
         this.LatLong = new LatLng(lat,lng);
@@ -86,5 +89,8 @@ public class YelpBusiness {
     public void setHours(String hours) {
         this.hours = hours;
     }
+
+
+
 
 }

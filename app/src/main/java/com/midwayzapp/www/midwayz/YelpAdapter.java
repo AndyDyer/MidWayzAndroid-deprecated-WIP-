@@ -8,11 +8,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.graphics.Bitmap;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 /**
  * Created by andrew on 2/5/16.
  */
 public class YelpAdapter extends ArrayAdapter<YelpBusiness>
 {
+    public String TAG = "YelpAdapter";
     public YelpAdapter(Context context, ArrayList<YelpBusiness> users) {
         super(context, 0, users);
     }
@@ -37,12 +49,15 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         tvAddress.setText(yelpbiz.getAddress().substring(2,yelpbiz.getAddress().length()-2));
         tvReviews.setText("Reviews: "+yelpbiz.getRating());
         tvPhone.setText(yelpbiz.getPhonenumber());
-        //ivMain.setImageBitmap(yelpbiz.GETBITMAP); http://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android
-        //ivMain.setReview(yelp.biz.getREVIEW);
+
+
 
 
         // Return the completed view to render on screen
         return convertView;
 
     }
+
+
+
 }
