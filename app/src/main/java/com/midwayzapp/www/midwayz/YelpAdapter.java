@@ -21,6 +21,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.content.Intent;
 import com.squareup.picasso.Picasso;
+import android.widget.Button;
 import android.net.Uri;
 import android.app.Activity;
 /**
@@ -47,6 +48,51 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         TextView tvReviews = (TextView) convertView.findViewById(R.id.tvReviews);
         ImageView ivMain = (ImageView) convertView.findViewById(R.id.ivMainPhoto);
         ImageView ivReview = (ImageView) convertView.findViewById(R.id.ivReviewPhoto);
+
+        //Hidden Stuff
+        final Button buttonShare = (Button) convertView.findViewById(R.id.buttonShare);
+        final TextView tvAddress = (TextView) convertView.findViewById(R.id.tvAddress);
+        final TextView tvPointA = (TextView) convertView.findViewById(R.id.tvPointA);
+        final TextView tvPointB = (TextView) convertView.findViewById(R.id.tvPointB);
+
+        buttonShare.setVisibility(View.GONE);
+        tvAddress.setVisibility(View.GONE);
+        tvPointA.setVisibility(View.GONE);
+        tvPointB.setVisibility(View.GONE);
+
+        tvAddress.setText(yelpbiz.getAddress().substring(2, yelpbiz.getAddress().length() - 2));
+
+        tvPointA.setText("FIX ME mins" + "from point A.");
+        tvPointB.setText("FIX ME mins" + "from point B.");
+
+        ivMain.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                if (buttonShare.getVisibility() == View.VISIBLE)
+                {
+                    buttonShare.setVisibility(View.GONE);
+                    tvAddress.setVisibility(View.GONE);
+                    tvPointA.setVisibility(View.GONE);
+                    tvPointB.setVisibility(View.GONE);
+                }
+                else
+                {
+                    buttonShare.setVisibility(View.VISIBLE);
+                    tvAddress.setVisibility(View.VISIBLE);
+                    tvPointA.setVisibility(View.VISIBLE);
+                    tvPointB.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
+        buttonShare.setOnClickListener(new View.OnClickListener(){
+            @Override
+             public void onClick(View v){
+                //TODO Bring up share UI
+            }
+        });
 /*
         ivMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +108,10 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
             }
         });
 */
-        //tvAddress.setText(yelpbiz.getAddress().substring(2, yelpbiz.getAddress().length() - 2));
+        //
         // Populate the data into the template view using the object's data
         tvName.setText(yelpbiz.getTitle());
-        tvCat.setText(yelpbiz.getCategory().substring(3, yelpbiz.getCategory().indexOf(",")-1));
+        tvCat.setText(yelpbiz.getCategory().substring(3, yelpbiz.getCategory().indexOf(",") - 1));
 
         tvReviews.setText(yelpbiz.getRating() + " reviews");
 

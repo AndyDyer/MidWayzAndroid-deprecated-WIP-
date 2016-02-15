@@ -41,6 +41,8 @@ import java.util.List;
 
 
 // TODO(Developer): Add pick 1 mode of transport Boxes
+//TODO : add current location option
+//TODO suggest only 1
 public class Address extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener {
 

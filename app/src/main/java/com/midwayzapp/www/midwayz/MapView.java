@@ -220,7 +220,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
         protected String doInBackground(Void... params) {
             // String response = yelp.searchForBusinessesByLocation("restaurant", "cll=" + "42.3600,-71.0568"); //
-            String response = yelp.searchForBusinessesByLocation("restaurant", MidAddress); 
+            String response = yelp.searchForBusinessesByLocation("restaurant", MidAddress);
 
             return response;
         }

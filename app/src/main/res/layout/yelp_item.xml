@@ -48,13 +48,56 @@
         android:layout_alignTop="@+id/tvCat"
         android:layout_toStartOf="@+id/tvReviews"
         android:linksClickable="true"
-
         android:layout_alignBottom="@+id/tvCat" />
 
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tvCat"
+        android:layout_alignParentStart="true" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tvPointA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Point A"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tvPointB"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvPointB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Point B"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tvAddress"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/buttonShare"
+        android:layout_marginTop="5dp"
+        android:layout_alignBaseline="@+id/tvPointA"
+        android:layout_alignBottom="@+id/tvPointA"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
 
     <!--
+    Address in full
+    Share Button
+    Distance from A
+    Distance from B
+
+
+
  android:onClick="openBrowser"
     http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aautoLink
     android:id="@+id/tvPhone"
