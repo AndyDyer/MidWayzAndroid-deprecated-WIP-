@@ -116,16 +116,16 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
     }
     @Override
     public void onMarkerDragStart(Marker marker) {
+
     }
 
     @Override
     public void onMarkerDragEnd(Marker marker) {
         MidPoint = marker.getPosition();
         MidAddress = getAddressFromLocation(MidPoint);
-        mMap.clear();
+        mMap2.clear();
         yelpList.clear();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         new YelpASync().execute();
     }
     @Override
@@ -135,9 +135,9 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
 
     public void PlaceMarkers(ArrayList<YelpBusiness> mylisty) {
-        mMap2.addMarker(new MarkerOptions().position(PointA).title("Point A"));
-        mMap2.addMarker(new MarkerOptions().position(PointB).title("Point B"));
-        mMap2.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        mMap.addMarker(new MarkerOptions().position(PointA).title("Point A"));
+        mMap.addMarker(new MarkerOptions().position(PointB).title("Point B"));
+        mMap.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
 /*  //TODO check will's to see how he did that.
         //TODO Possible option for removing markers to maintain smoothness and allow .remove as opposed to clearing principal A and B markers
@@ -145,12 +145,12 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
         Marker marker1 = mMap.addMarker(new MarkerOptions().position(yelpList.get(yelpList.size()-(yelpList.size()-1)).getLatLngT()).title(yelpList.get(52).getTitle()));
        */
 
-        /*
+
         for(int i = 0; i < mylisty.size();i++)
         {
-         mMap.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()));
+         mMap2.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()));
 
-        }*/
+        }
     }
 
 

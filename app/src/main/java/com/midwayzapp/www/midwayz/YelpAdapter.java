@@ -90,11 +90,19 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         buttonShare.setOnClickListener(new View.OnClickListener(){
             @Override
              public void onClick(View v){
-                //TODO Bring up share UI
+
+
+                String shareput = "Let's meet at " + yelpbiz.getTitle() +
+                        " \nIt is the Midwayz between 1037 W Northshore and 321 N Clark. \n "
+                        + yelpbiz.getMobileurl();
+
+               YelpResults.ShareText(context, shareput);
+                //TODO http://stackoverflow.com/questions/9524306/call-startactivity-of-a-activity-class-from-a-different-classoverlay
+                //startActivity(Intent.createChooser(intent2, "Share via"));
             }
         });
-/*
-        ivMain.setOnClickListener(new View.OnClickListener() {
+
+        ivReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                YelpResults.openURL(context,yelpbiz.getMobileurl());
@@ -107,7 +115,7 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
                 YelpResults.openURL(context,yelpbiz.getMobileurl());
             }
         });
-*/
+
         //
         // Populate the data into the template view using the object's data
         tvName.setText(yelpbiz.getTitle());

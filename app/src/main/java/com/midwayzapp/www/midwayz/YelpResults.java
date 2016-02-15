@@ -185,5 +185,13 @@ public class YelpResults extends Activity {
         context.startActivity(intent);
     }
 
+    public static void ShareText(Context context, String Words)
+    {
+        Intent intent2 = new Intent(); intent2.setAction(Intent.ACTION_SEND);
+        intent2.setType("text/plain");
+        intent2.putExtra(Intent.EXTRA_TEXT, Words );
+        context.startActivity(Intent.createChooser(intent2, "Share via"));
+    }
+
 }
 

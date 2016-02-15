@@ -82,9 +82,7 @@
         android:layout_height="wrap_content"
         android:text="Share"
         android:id="@+id/buttonShare"
-        android:layout_marginTop="5dp"
-        android:layout_alignBaseline="@+id/tvPointA"
-        android:layout_alignBottom="@+id/tvPointA"
+        android:layout_below="@+id/tvPointA"
         android:layout_centerHorizontal="true" />
 
 
