@@ -37,10 +37,12 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import android.widget.ImageButton;
-import android.support.v4.app.FragmentActivity;
+
 import android.location.LocationManager;
 import android.content.Context;
+
+import android.location.Location;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -64,10 +66,13 @@ public class Address extends AppCompatActivity
     private AutoCompleteTextView mAutocompleteView1;
     private AutoCompleteTextView mAutocompleteView2;
     private static final LatLngBounds BOUNDS_CONT_US= new LatLngBounds(
-               new LatLng(23.362429, -72.421875),new LatLng(47.129951, -127.265625));
-
+               new LatLng(23.362429, -72.421875),new LatLng(47.129951, -127.265625)); //TODO in future base off current locat
+    public Context context;
+    public Location location;
     public LatLng Add1Cord, Add2Cord, AddMCord;
     public String MAddress;
+    LatLng currentlatlng;
+    String currentadd;
     protected LocationManager locationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -112,11 +117,7 @@ public class Address extends AppCompatActivity
         {
             @Override
             public void onClick(View v) {
-
-
-              //TODO CURRENT LOCATION.
-
-
+              //TODO CURRENT LOCATION ASYNC
             }
         });
         toLoad.setOnClickListener(new View.OnClickListener()
@@ -132,10 +133,7 @@ public class Address extends AppCompatActivity
                // Address2 = (AutoCompleteTextView) findViewById(R.id.Add2);
                 final String add2 = mAutocompleteView2.getText().toString();
 
-
-
-
-
+                //Variable prep
                 Add1Cord = getLocationFromAddress(add1);
                 Add2Cord = getLocationFromAddress(add2);
                 AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
@@ -311,13 +309,13 @@ public class Address extends AppCompatActivity
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        TestTV.setText("Response is: " + response);
+
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                TestTV.setText("That didn't work!");
+
             }
         });
         queue.add(stringRequest);

@@ -55,6 +55,11 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        final Button filterbutton = (Button) findViewById(R.id.buttonFilter);
+        final Button routeButton = (Button) findViewById(R.id.buttonRoute);
+        filterbutton.setVisibility(View.GONE);
+        routeButton.setVisibility(View.GONE);
+
 
 
 
@@ -104,7 +109,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MidPoint));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(14));
         // TODO Change to be relative to mid points.
         // TODO Make so point and A and B cannot be cleared see WILLS solution
 
@@ -113,7 +118,12 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
        new YelpASync().execute();
 
-
+/*
+let path = GMSMutablePath()
+			path.addCoordinate(midwayz.pointA.placemark.location!.coordinate)
+			path.addCoordinate(midwayz.coordinate.loc.coordinate)
+			path.addCoordinate(midwayz.pointB.placemark.location!.coordinate)
+ */
     }
     @Override
     public void onMarkerDragStart(Marker marker) {

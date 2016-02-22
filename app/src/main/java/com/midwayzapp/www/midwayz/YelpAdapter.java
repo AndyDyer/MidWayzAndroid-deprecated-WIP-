@@ -1,5 +1,6 @@
 package com.midwayzapp.www.midwayz;
 
+
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import java.util.ArrayList;
@@ -8,22 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
-import android.graphics.Bitmap;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-import android.content.Intent;
 import com.squareup.picasso.Picasso;
-import android.widget.Button;
-import android.net.Uri;
-import android.app.Activity;
+
 /**
  * Created by andrew on 2/5/16.
  */
@@ -50,7 +37,7 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         ImageView ivReview = (ImageView) convertView.findViewById(R.id.ivReviewPhoto);
 
         //Hidden Stuff
-        final Button buttonShare = (Button) convertView.findViewById(R.id.buttonShare);
+        final ImageView buttonShare = (ImageView) convertView.findViewById(R.id.buttonShare);
         final TextView tvAddress = (TextView) convertView.findViewById(R.id.tvAddress);
         final TextView tvPointA = (TextView) convertView.findViewById(R.id.tvPointA);
         final TextView tvPointB = (TextView) convertView.findViewById(R.id.tvPointB);
@@ -61,10 +48,10 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         tvPointB.setVisibility(View.GONE);
 
         tvAddress.setText(yelpbiz.getAddress().substring(2, yelpbiz.getAddress().length() - 2));
-
-        tvPointA.setText("FIX ME mins" + "from point A.");
+        /*
+        tvPointA.setText();
         tvPointB.setText("FIX ME mins" + "from point B.");
-
+        */
         ivMain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -93,7 +80,7 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
 
 
                 String shareput = "Let's meet at " + yelpbiz.getTitle() +
-                        " \nIt is the Midwayz between 1037 W Northshore and 321 N Clark. \n "
+                        "\n" + yelpbiz.getAddress() + "\n \n \n"
                         + yelpbiz.getMobileurl();
 
                YelpResults.ShareText(context, shareput);

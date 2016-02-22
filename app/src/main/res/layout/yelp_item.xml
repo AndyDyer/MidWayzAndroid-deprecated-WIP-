@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:background="@color/list_divider"
-    >
+    android:background="@color/list_divider">
     <ImageView
         android:layout_width="300dp"
         android:layout_height="250dp"
@@ -13,13 +12,23 @@
         android:contentDescription="@string/desc"
         android:layout_centerHorizontal="true" />
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_below="@+id/ivMainPhoto"
+        android:layout_alignParentStart="true">
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:textColor="#54B8C8"
+        android:textSize="20sp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ivMainPhoto" />
+         />
 
 
 
@@ -37,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reviews"
+        android:textSize="12sp"
         android:layout_alignTop="@+id/ivReviewPhoto"
         android:layout_alignParentEnd="true"
         android:linksClickable="true"
@@ -65,7 +75,7 @@
         android:id="@+id/tvPointA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Point A"
+        android:text=""
         android:layout_marginTop="5dp"
         android:layout_below="@+id/tvPointB"
         android:layout_alignParentStart="true" />
@@ -74,38 +84,26 @@
         android:id="@+id/tvPointB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Point B"
+        android:text=""
         android:layout_marginTop="5dp"
         android:layout_below="@+id/tvAddress"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="750dp"
+        android:layout_height="100dp"
         android:text="Share"
         android:id="@+id/buttonShare"
-        android:layout_below="@+id/tvPointA"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/sharebutton"
+        android:layout_below="@+id/tvPointB"
+        android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
 
     <!--
-    Address in full
-    Share Button
-    Distance from A
-    Distance from B
 
 
 
- android:onClick="openBrowser"
-    http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aautoLink
-    android:id="@+id/tvPhone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Phone"
-    android:layout_alignTop="@+id/tvName"
-    android:layout_alignEnd="@+id/tvReviews"
-    android:autoLink="phone"
-    android:linksClickable="true"
 -->
