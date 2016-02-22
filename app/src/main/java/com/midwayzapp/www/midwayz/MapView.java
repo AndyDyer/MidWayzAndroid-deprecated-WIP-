@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -135,9 +136,9 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
 
     public void PlaceMarkers(ArrayList<YelpBusiness> mylisty) {
-        mMap.addMarker(new MarkerOptions().position(PointA).title("Point A"));
-        mMap.addMarker(new MarkerOptions().position(PointB).title("Point B"));
-        mMap.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        mMap.addMarker(new MarkerOptions().position(PointA).title("Point A").icon(BitmapDescriptorFactory.fromResource(R.drawable.starting_pin)));
+        mMap.addMarker(new MarkerOptions().position(PointB).title("Point B").icon(BitmapDescriptorFactory.fromResource(R.drawable.starting_pin)));
+        mMap.addMarker(new MarkerOptions().position(MidPoint).title("MidPoint").draggable(true).icon(BitmapDescriptorFactory.fromResource(R.drawable.midpoint)));
 
 /*  //TODO check will's to see how he did that.
         //TODO Possible option for removing markers to maintain smoothness and allow .remove as opposed to clearing principal A and B markers
@@ -148,7 +149,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback,OnMa
 
         for(int i = 0; i < mylisty.size();i++)
         {
-         mMap2.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()));
+         mMap2.addMarker(new MarkerOptions().position(yelpList.get(i).getLatLngT()).title(yelpList.get(i).getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.poi)));
 
         }
     }

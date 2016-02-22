@@ -97,8 +97,7 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
                         + yelpbiz.getMobileurl();
 
                YelpResults.ShareText(context, shareput);
-                //TODO http://stackoverflow.com/questions/9524306/call-startactivity-of-a-activity-class-from-a-different-classoverlay
-                //startActivity(Intent.createChooser(intent2, "Share via"));
+
             }
         });
 

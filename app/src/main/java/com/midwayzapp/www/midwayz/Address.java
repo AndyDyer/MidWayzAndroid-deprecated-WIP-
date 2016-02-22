@@ -4,6 +4,7 @@ package com.midwayzapp.www.midwayz;
 import android.content.Intent;
 
 import android.location.Geocoder;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
@@ -35,6 +37,10 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import android.widget.ImageButton;
+import android.support.v4.app.FragmentActivity;
+import android.location.LocationManager;
+import android.content.Context;
 
 import java.io.IOException;
 import java.util.List;
@@ -43,14 +49,16 @@ import java.util.List;
 // TODO(Developer): Add pick 1 mode of transport Boxes
 //TODO : add current location option
 //TODO suggest only 1
+//TODO blue transparency http://stackoverflow.com/questions/8193447/i-want-to-add-a-color-filter-to-the-imageview
 public class Address extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener {
+
 
     private static final String TAG = Address.class.getSimpleName();
     EditText Address1;
     EditText Address2;
-    Button toLoad;
-
+    ImageView toLoad;
+    ImageView currentLocat;
     protected GoogleApiClient mGoogleApiClient;
     private PlaceAutocompleteAdapter mAdapter;
     private AutoCompleteTextView mAutocompleteView1;
@@ -60,15 +68,20 @@ public class Address extends AppCompatActivity
 
     public LatLng Add1Cord, Add2Cord, AddMCord;
     public String MAddress;
+    protected LocationManager locationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
-        toLoad = (Button) findViewById(R.id.GoButton);
+        getSupportActionBar().hide();
+        toLoad = (ImageView) findViewById(R.id.GoButton);
+        currentLocat = (ImageView) findViewById(R.id.ivCurrentLocat);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, 0 /* clientId */, this) //TODO Check this clientID
+                .enableAutoManage(this, 0 /* clientId */, this)
                 .addApi(Places.GEO_DATA_API)
                 .build();
 
@@ -92,8 +105,24 @@ public class Address extends AppCompatActivity
         mAutocompleteView1.setAdapter(mAdapter);
         mAutocompleteView2.setAdapter(mAdapter);
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+
+        currentLocat.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+
+
+              //TODO CURRENT LOCATION.
+
+
+            }
+        });
         toLoad.setOnClickListener(new View.OnClickListener()
+
+
+
         {
             @Override
             public void onClick(View v) {
@@ -152,8 +181,6 @@ public class Address extends AppCompatActivity
                     .getPlaceById(mGoogleApiClient, placeId);
             placeResult.setResultCallback(mUpdatePlaceDetailsCallback);
 
-            Toast.makeText(getApplicationContext(), "Clicked: " + primaryText,
-                    Toast.LENGTH_SHORT).show();
             Log.i(TAG, "Called getPlaceById to get Place details for " + placeId);
         }
     };
