@@ -47,7 +47,7 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         tvPointA.setVisibility(View.GONE);
         tvPointB.setVisibility(View.GONE);
 
-        tvAddress.setText(yelpbiz.getAddress().substring(2, yelpbiz.getAddress().length() - 2));
+        tvAddress.setText(yelpbiz.getAddress());
         /*
         tvPointA.setText();
         tvPointB.setText("FIX ME mins" + "from point B.");
@@ -105,7 +105,11 @@ public class YelpAdapter extends ArrayAdapter<YelpBusiness>
         //
         // Populate the data into the template view using the object's data
         tvName.setText(yelpbiz.getTitle());
-        tvCat.setText(yelpbiz.getCategory().substring(3, yelpbiz.getCategory().indexOf(",") - 1));
+        if (yelpbiz.getCategory()!= null)
+        {
+            tvCat.setText(yelpbiz.getCategory().substring(3, yelpbiz.getCategory().indexOf(",") - 1));
+        }
+
 
         tvReviews.setText(yelpbiz.getRating() + " reviews");
 

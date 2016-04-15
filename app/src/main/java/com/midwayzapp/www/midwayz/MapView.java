@@ -167,7 +167,7 @@ let path = GMSMutablePath()
 
     public void processJson(String jsonStuff) throws JSONException {
 
-
+    String useless = null;
         JSONObject firstObject = new JSONObject(jsonStuff);
         JSONArray jsonArray = firstObject.getJSONArray("businesses");
 
@@ -199,7 +199,12 @@ let path = GMSMutablePath()
             JSONObject locObj = new JSONObject(objectInArray.getString("location"));
 
             yelp.setAddress(locObj.getString("address"));
-            Log.v(TAG, " isAddedAddress: " + yelp.getAddress());
+            Log.v(TAG, " presubisAddedAddress: " + yelp.getAddress());
+            useless = locObj.getString("city");
+            Log.v(TAG, "CITY " + useless);
+            //useless = useless.substring(2, useless.length() - 2);
+            yelp.setAddress(yelp.getAddress().substring(2, yelp.getAddress().length() - 2) + ", " + useless);
+            Log.v(TAG, " 420isAddedAddress: " + yelp.getAddress());
 
             JSONObject cordObj = new JSONObject(locObj.getString("coordinate"));
 
@@ -207,6 +212,8 @@ let path = GMSMutablePath()
             Log.v(TAG, " isLatLng: " + yelp.getLatLng());
 
 
+            yelp.setCategory(objectInArray.getString("categories"));
+            Log.v(TAG, "categories" + yelp.getCategory());
             yelpList.add(yelp);
 
         }

@@ -6,7 +6,7 @@
     android:paddingRight="16dp"
     android:background="@color/list_divider">
     <ImageView
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/ivMainPhoto"
         android:contentDescription="@string/desc"
@@ -91,12 +91,12 @@
 
     <ImageView
         android:layout_width="750dp"
-        android:layout_height="100dp"
+        android:layout_height="47dp"
         android:text="Share"
         android:id="@+id/buttonShare"
         android:src="@drawable/sharebutton"
-        android:layout_below="@+id/tvPointB"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvPointA" />
     </RelativeLayout>
 
 

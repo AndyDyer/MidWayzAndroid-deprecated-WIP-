@@ -79,6 +79,7 @@ public class YelpResults extends Activity {
 
 
     public void processJson(String jsonStuff) throws JSONException {
+        String useless = null;
 
         JSONObject firstObject = new JSONObject(jsonStuff);
         JSONArray jsonArray = firstObject.getJSONArray("businesses");
@@ -99,29 +100,32 @@ public class YelpResults extends Activity {
 
             yelp.setPhonenumber(objectInArray.getString("display_phone"));
             yelp.setThumbnailUrl(objectInArray.getString("image_url"));
-            yelp.setRatingpic(objectInArray.getString("rating_img_url_small")); // _small
-            yelp.setMobileurl(objectInArray.getString("mobile_url"));
+            yelp.setRatingpic(objectInArray.getString("rating_img_url_small"));
 
             Log.v(TAG, " isAddedPhone: " + yelp.getPhonenumber());
             Log.v(TAG, " isAddedThumb: " + yelp.getThumbnailUrl());
             Log.v(TAG, " isAddedRating: " + yelp.getRatingpic());
 
-            //JSONObject catObj = new JSONObject((objectInArray.getString("categories")));
-            yelp.setCategory(objectInArray.getString("categories"));
 
-            Log.v(TAG, " CATEGORIES CATEGORIES: " + yelp.getCategory());
 
             //JSONArray locArray = objectInArray.getJSONArray("location");
             JSONObject locObj = new JSONObject(objectInArray.getString("location"));
 
             yelp.setAddress(locObj.getString("address"));
-            Log.v(TAG, " isAddedAddress: " + yelp.getAddress());
+            Log.v(TAG, " presubisAddedAddress: " + yelp.getAddress());
+            useless = locObj.getString("city");
+            Log.v(TAG, "CITY " + useless);
+            //useless = useless.substring(2, useless.length() - 2);
+            yelp.setAddress(yelp.getAddress().substring(2, yelp.getAddress().length() - 2) +", " + useless);
+            Log.v(TAG, " 420isAddedAddress: " + yelp.getAddress());
 
             JSONObject cordObj = new JSONObject(locObj.getString("coordinate"));
 
             yelp.setLatLng(cordObj.getDouble("latitude"), cordObj.getDouble("longitude"));
             Log.v(TAG, " isLatLng: " + yelp.getLatLng());
 
+            yelp.setCategory(objectInArray.getString("categories"));
+            Log.v(TAG, "categories" + yelp.getCategory());
 
             yelpList.add(yelp);
 

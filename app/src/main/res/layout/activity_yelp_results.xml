@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@color/list_divider"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/yelpListView"
@@ -13,9 +11,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
-        android:cacheColorHint="@android:color/transparent"
-        android:paddingLeft="2dp"
-        >
+        android:cacheColorHint="@android:color/transparent">
 
     </ListView>
 

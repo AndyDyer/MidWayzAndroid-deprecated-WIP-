@@ -49,8 +49,11 @@ import java.util.List;
 
 
 // TODO(Developer): Add pick 1 mode of transport Boxes
+// TODO the midway... lol and what decides that
+// TODO force 2nd location to be more feasible.
 //TODO : add current location option
-//TODO suggest only 1
+// TODO DELETE ADDRESS BUTTON
+// TODO left adjust address text
 //TODO blue transparency http://stackoverflow.com/questions/8193447/i-want-to-add-a-color-filter-to-the-imageview
 public class Address extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener {
@@ -65,8 +68,10 @@ public class Address extends AppCompatActivity
     private PlaceAutocompleteAdapter mAdapter;
     private AutoCompleteTextView mAutocompleteView1;
     private AutoCompleteTextView mAutocompleteView2;
-    private static final LatLngBounds BOUNDS_CONT_US= new LatLngBounds(
-               new LatLng(23.362429, -72.421875),new LatLng(47.129951, -127.265625)); //TODO in future base off current locat
+    private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds( //(25.430873, -128.803711) // (51.800123, -60.512695)
+            new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
+    private static final LatLngBounds BOUNDS_CONT_US = new LatLngBounds(
+            new LatLng(25.430873, -128.803711),new LatLng(51.800123, -60.512695)); //TODO in future base off current locat
     public Context context;
     public Location location;
     public LatLng Add1Cord, Add2Cord, AddMCord;
@@ -91,6 +96,7 @@ public class Address extends AppCompatActivity
                 .build();
 
 
+        //mAdapter.setBounds(BOUNDS_CONT_US);
         // Retrieve the AutoCompleteTextView that will display Place suggestions.
         mAutocompleteView1 = (AutoCompleteTextView)
                 findViewById(R.id.Add1);
@@ -138,8 +144,7 @@ public class Address extends AppCompatActivity
                 Add2Cord = getLocationFromAddress(add2);
                 AddMCord = GeoMidpoint(Add1Cord, Add2Cord);
                 MAddress = getAddressFromLocation(AddMCord);
-                //TODO Decide geo vs Midpt
-                //TODO Add true midpoint algo
+
                 Intent pushtoLoad = new Intent(getApplicationContext(), MapView.class); // change second param to loading
 
 
